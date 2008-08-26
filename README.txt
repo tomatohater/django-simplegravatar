@@ -1,5 +1,5 @@
 ==================================================
-Django - Simple Gravatar
+Django - Simple Gravatar (version 0.1)
 http://www.tomatohater.com/django-simple-gravatar/
 ==================================================
 
@@ -12,3 +12,6 @@ To install this app, simply:
 3) Add the path to 'PYTHONPATH/simplegravatar/templates' to TEMPLATE_DIRS in your settings.py file.
 
 Enjoy!
+Drew
+
+Last updated: August 26, 2008
