@@ -1,6 +1,6 @@
 ==================================================
 Django - Simple Gravatar (version 0.1)
-http://www.tomatohater.com/django-simple-gravatar/
+http://www.tomatohater.com/2008/aug/16/implementing-gravatar-django/
 ==================================================
 
 A Django plugin application to add Gravatar support 
