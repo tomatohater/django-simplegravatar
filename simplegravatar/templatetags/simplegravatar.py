@@ -2,26 +2,45 @@ import urllib, hashlib
 from django import template
 from django.conf import settings
 
+
 register = template.Library()
 
+
 @register.inclusion_tag('templatetags/simplegravatar/image.html')
-def show_gravatar(email):
-    (size, default, rating) = (80, '', 'G')
-
-    if settings.SIMPLEGRAVATAR_SIZE:
-        size = settings.SIMPLEGRAVATAR_SIZE
-        
-    if settings.SIMPLEGRAVATAR_RATING:
-        rating = settings.SIMPLEGRAVATAR_RATING
+def show_gravatar(email, size=None, ssl=False):
+    '''
+    An inclusion tag that inserts gravatar image.
+    '''
     
-    if settings.SIMPLEGRAVATAR_DEFAULT:
-        default = settings.SIMPLEGRAVATAR_DEFAULT
+    size = size or getattr(settings, 'SIMPLEGRAVATAR_SIZE', 80)
+    rating = getattr(settings, 'SIMPLEGRAVATAR_RATING', 'g')
+    default = getattr(settings, 'SIMPLEGRAVATAR_DEFAULT', '')
+    ssl = getattr(settings, 'SIMPLEGRAVATAR_SECURE', False)
      
-    url = "http://www.gravatar.com/avatar/%s.jpg?" % hashlib.md5(email).hexdigest()
-    url += urllib.urlencode({
-        'size': str(size),     # size
-        'rating': rating,        # rating
-        'default': default,       # default
-    })
+    gravatar_base = 'http://www.gravatar.com/avatar'
+    if ssl:
+        gravatar_base = 'https://secure.gravatar.com/avatar'
 
-    return {'gravatar': {'url': url, 'size': size}}
+    url = "%s/%s.jpg?%s" % (gravatar_base,
+                            hashlib.md5(email).hexdigest(),
+                            urllib.urlencode({
+                                'size': str(size),
+                                'rating': rating,
+                                'default': default,
+                            }))
+    
+    return {
+        'gravatar': {
+            'url': url, 'size': size
+        }
+    }
+
+
+@register.inclusion_tag('templatetags/simplegravatar/image.html')
+def show_gravatar_secure(email, size=None):
+    '''
+    An inclusion tag that inserts gravatar image (over https).
+    '''
+    return show_gravatar(email, size, True)
+    
+    
