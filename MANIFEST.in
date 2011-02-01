@@ -1,1 +1,6 @@
 include LICENSE.txt
+include README.txt
+include MANIFEST.in
+recursive-include simplegravatar *
+global-include *.py
+global-exclude *.pyc
