@@ -21,7 +21,7 @@ def show_gravatar(email, size=None, ssl=False):
     size = size or getattr(settings, 'SIMPLEGRAVATAR_SIZE', 80)
     rating = getattr(settings, 'SIMPLEGRAVATAR_RATING', 'g')
     default = getattr(settings, 'SIMPLEGRAVATAR_DEFAULT', '')
-    ssl = getattr(settings, 'SIMPLEGRAVATAR_SECURE', False)
+    ssl = ssl or getattr(settings, 'SIMPLEGRAVATAR_SECURE', False)
 
     gravatar_base = 'http://www.gravatar.com/avatar'
     if ssl:
