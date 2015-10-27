@@ -1,6 +1,6 @@
 ==================================================
 django-simplegravatar (version 0.3.2)
-http://tomatohater.com/django-simplegravatar/
+https://github.com/tomatohater/django-simplegravatar/
 Last updated: 26-Oct-2015
 ==================================================
 
