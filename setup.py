@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name = 'django-simplegravatar',
-    version = '0.2',
+    version = '0.3',
     packages = ['simplegravatar', ],
     package_data = {
         'simplegravatar': [
