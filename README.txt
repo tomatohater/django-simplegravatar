@@ -1,7 +1,7 @@
 ==================================================
-django-simplegravatar (version 0.3)
+django-simplegravatar (version 0.3.1)
 http://tomatohater.com/django-simplegravatar/
-Last updated: 31-Jan-2011
+Last updated: 26-Oct-2015
 ==================================================
 
 DESCRIPTION:

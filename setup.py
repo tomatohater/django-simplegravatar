@@ -11,7 +11,7 @@ setup(
     },
     author = 'Drew Engelson',
     author_email = 'drew@engelson.net',
-    url = 'https://github.com/django-simplegravatar/',
+    url = 'https://github.com/tomatohater/django-simplegravatar/',
     license = 'GPLv3',
     description = 'A simpler Django template tag to add Gravatar support to your Django projects.',
     long_description = 'A simpler Django template tag to add Gravatar support to your Django projects.',
